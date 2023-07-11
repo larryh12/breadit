@@ -4,7 +4,7 @@ import { buttonVariants } from "../ui/Button";
 
 const PostVoteShell: FC = ({}) => {
   return (
-    <div className="flex items-center flex-col pr-6 w-20">
+    <div className="flex gap-6 p-6 items-center sm:flex-col sm:py-0 sm:w-10 sm:gap-0">
       {/* upvote */}
       <div className={buttonVariants({ variant: "ghost" })}>
         <ArrowBigUp className="h-5 w-5 text-zinc-700" />

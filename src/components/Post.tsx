@@ -31,6 +31,7 @@ const Post: FC<PostProps> = ({
     <div className="rounded-md bg-white shadow">
       <div className="px-6 py-4 flex justify-between">
         <PostVoteClient
+          className="flex flex-col gap-4 sm:gap-0 pr-6 sm:w-20 pb-4 sm:pb-0"
           postId={post.id}
           initialVotesAmt={votesAmt}
           initialVote={currentVote}

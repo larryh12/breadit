@@ -43,6 +43,7 @@ const PostVoteServer = async ({
 
   return (
     <PostVoteClient
+      className="flex gap-6 p-6 items-center sm:flex-col sm:py-0 sm:w-10 sm:gap-0"
       postId={postId}
       initialVotesAmt={votesAmt}
       initialVote={currentVote}

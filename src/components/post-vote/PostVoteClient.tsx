@@ -12,7 +12,7 @@ import axios, { AxiosError } from "axios";
 import { toast } from "@/hooks/use-toast";
 import { PostVoteRequest } from "@/lib/validators/vote";
 
-interface PostVoteClientProps {
+interface PostVoteClientProps extends React.HTMLAttributes<HTMLDivElement> {
   postId: string;
   initialVotesAmt: number;
   initialVote?: VoteType | undefined;
@@ -22,6 +22,7 @@ const PostVoteClient: FC<PostVoteClientProps> = ({
   postId,
   initialVotesAmt,
   initialVote,
+  ...props
 }) => {
   const { loginToast } = useCustomToasts();
   const [votesAmt, setVotesAmt] = useState<number>(initialVotesAmt);
@@ -78,7 +79,7 @@ const PostVoteClient: FC<PostVoteClientProps> = ({
   });
 
   return (
-    <div className="flex flex-col gap-4 sm:gap-0 pr-6 sm:w-20 pb-4 sm:pb-0">
+    <div {...props}>
       {/* upvote */}
       <Button
         onClick={() => vote("UP")}
