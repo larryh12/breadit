@@ -35,19 +35,25 @@ export async function GET(req: Request) {
     let whereClause = {};
 
     if (subredditName) {
-      whereClause = {
-        subreddit: {
-          name: subredditName,
-        },
-      };
-    } else if (session) {
-      whereClause = {
-        subreddit: {
-          id: {
-            in: followedCommunitiesIds,
+      if (subredditName === "all") {
+        whereClause = {};
+      } else {
+        whereClause = {
+          subreddit: {
+            name: subredditName,
           },
-        },
-      };
+        };
+      }
+    } else {
+      if (session) {
+        whereClause = {
+          subreddit: {
+            id: {
+              in: followedCommunitiesIds,
+            },
+          },
+        };
+      }
     }
 
     const posts = await db.post.findMany({

@@ -1,13 +1,35 @@
+import PostFeed from "@/components/PostFeed";
 import { buttonVariants } from "@/components/ui/Button";
 import { INFINITE_SCROLL_PAGINATION_RESULTS } from "@/config";
+import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { HomeIcon } from "lucide-react";
-import PostFeed from "@/components/PostFeed";
 
 export const dynamic = "force-dynamic";
 export const fetchCache = "force-no-store";
 
-export default async function Home() {
+export default async function page() {
+  const session = await getAuthSession();
+
+  let followedCommunitiesIds: string[] = [];
+  let whereClause = {};
+
+  if (session) {
+    const followedCommunities = await db.subscription.findMany({
+      where: {
+        userId: session.user.id,
+      },
+    });
+    followedCommunitiesIds = followedCommunities.map((sub) => sub.subredditId);
+    whereClause = {
+      subreddit: {
+        id: {
+          in: followedCommunitiesIds,
+        },
+      },
+    };
+  }
+
   const initialPosts = await db.post.findMany({
     take: INFINITE_SCROLL_PAGINATION_RESULTS,
     orderBy: {
@@ -19,14 +41,15 @@ export default async function Home() {
       author: true,
       comments: true,
     },
+    where: whereClause,
   });
 
   return (
     <>
-      <h1 className="font-bold text-3xl md:text-4xl">Browse r/all</h1>
+      <h1 className="font-bold text-3xl md:text-4xl">Your feed</h1>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6">
         {/* subreddit feed */}
-        <PostFeed initialPosts={initialPosts} subredditName="all" />
+        <PostFeed initialPosts={initialPosts} />
 
         {/* subreddit info */}
         <div className="overflow-hidden h-fit rounded-lg border border-gray-200 order-first md:order-last">

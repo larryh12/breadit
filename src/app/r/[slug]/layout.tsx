@@ -24,14 +24,6 @@ const Layout = async ({
   // Get subreddit data
   const subreddit = await db.subreddit.findFirst({
     where: { name: slug },
-    // include: {
-    //   posts: {
-    //     include: {
-    //       author: true,
-    //       votes: true,
-    //     },
-    //   },
-    // },
   });
   if (!subreddit) return notFound();
 
