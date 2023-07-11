@@ -10,7 +10,6 @@ import {
   DropdownMenuTrigger,
 } from "./ui/DropdownMenu";
 import UserAvatar from "./UserAvatar";
-import Link from "next/link";
 import { signOut } from "next-auth/react";
 
 interface UserAccountNavProps {
@@ -44,13 +43,13 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
         <DropdownMenuSeparator />
 
         <DropdownMenuItem asChild>
-          <Link href="/">Feed</Link>
+          <a href="/feed">Your Feed</a>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/r/create">Create Community</Link>
+          <a href="/r/create">Create Community</a>
         </DropdownMenuItem>
         <DropdownMenuItem asChild>
-          <Link href="/settings">Settings</Link>
+          <a href="/settings">Settings</a>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
