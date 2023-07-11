@@ -1,9 +1,10 @@
 import MiniCreatePost from "@/components/MiniCreatePost";
-import PostFeed from "@/components/PostFeed";
 import { INFINITE_SCROLL_PAGINATION_RESULTS } from "@/config";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
+import dynamic from "next/dynamic";
+const PostFeed = dynamic(() => import("@/components/PostFeed"), { ssr: false });
 
 const page = async ({
   params: { slug },
