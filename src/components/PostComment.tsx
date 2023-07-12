@@ -14,6 +14,7 @@ import UserAvatar from "./UserAvatar";
 import { Button } from "./ui/Button";
 import { Label } from "./ui/Label";
 import { Textarea } from "./ui/Textarea";
+import CommentVotes from "./CommentVotes";
 
 type ExtendedComment = Comment & {
   votes: CommentVote[];
@@ -23,7 +24,7 @@ type ExtendedComment = Comment & {
 interface PostCommentProps {
   comment: ExtendedComment;
   votesAmt: number;
-  currentVote: CommentVote | undefined;
+  currentVote?: CommentVote;
   postId: string;
 }
 
@@ -86,11 +87,11 @@ const PostComment: FC<PostCommentProps> = ({
       <p className="text-sm text-zinc-900 mt-2">{comment.text}</p>
 
       <div className="flex gap-2 items-center">
-        {/* <CommentVotes
+        <CommentVotes
           commentId={comment.id}
           votesAmt={votesAmt}
           currentVote={currentVote}
-        /> */}
+        />
 
         <Button
           onClick={() => {
