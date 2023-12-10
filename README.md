@@ -15,46 +15,46 @@ Modern full-stack Reddit clone.
 ## Previews
 
 <figure>
+  <figcaption>Homepage</figcaption>
   <img src="docs/screen_01.png" alt="Sample Image">
-  <figcaption align="center">Homepage</figcaption>
 </figure>
 
 <figure>
+  <figcaption>Login modal</figcaption>
   <img src="docs/screen_02.png" alt="Sample Image">
-  <figcaption align="center">Login modal</figcaption>
 </figure>
 
 <figure>
+  <figcaption>Subreddit search</figcaption>
   <img src="docs/screen_03.png" alt="Sample Image">
-  <figcaption align="center">Subreddit search</figcaption>
 </figure>
 
 <figure>
+  <figcaption>User settings</figcaption>
   <img src="docs/screen_04.png" alt="Sample Image">
-  <figcaption align="center">User settings</figcaption>
 </figure>
 
 <figure>
+  <figcaption>Subreddit creation</figcaption>
   <img src="docs/screen_05.png" alt="Sample Image">
-  <figcaption align="center">Subreddit creation</figcaption>
 </figure>
 
 <figure>
+  <figcaption>Subreddit feed</figcaption>
   <img src="docs/screen_06.png" alt="Sample Image">
-  <figcaption align="center">Subreddit feed</figcaption>
 </figure>
 
 <figure>
+  <figcaption>Post editor</figcaption>
   <img src="docs/screen_07.png" alt="Sample Image">
-  <figcaption align="center">Post editor</figcaption>
 </figure>
 
 <figure>
+  <figcaption>Post page</figcaption>
   <img src="docs/screen_09.png" alt="Sample Image">
-  <figcaption align="center">Post page</figcaption>
 </figure>
 
 <figure>
+  <figcaption>Comment feed</figcaption>
   <img src="docs/screen_08.png" alt="Sample Image">
-  <figcaption align="center">Comment feed</figcaption>
 </figure>
